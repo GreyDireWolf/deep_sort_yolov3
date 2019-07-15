@@ -93,7 +93,7 @@ def main(yolo):
             bbox = det.to_tlbr()
             cv2.rectangle(frame,(int(bbox[0]), int(bbox[1])), (int(bbox[2]), int(bbox[3])),(255,0,0), 2)
             
-        cv2.imshow('', frame)
+        #cv2.imshow('', frame)
         print(people)
         
         if writeVideo_flag:
@@ -117,7 +117,9 @@ def main(yolo):
     filename = (os.path.splitext(args["video"])[0])
     with open(filename+".txt", "w") as log:
         log.write('{}'.format(people))
+    filename += ".txt"
     shutil.move(args["video"], "/content/drive/My Drive/Processed")
+    shutil.move(filename, "/content/drive/My Drive/Processed")
     if writeVideo_flag:
         out.release()
         list_file.close()
