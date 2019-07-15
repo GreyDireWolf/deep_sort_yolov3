@@ -4,6 +4,7 @@
 from __future__ import division, print_function, absolute_import
 
 import os
+import shutil
 from timeit import time
 import warnings
 import sys
